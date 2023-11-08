@@ -7,7 +7,7 @@ package com.mrjaffesclass.othello;
  * @author Mr. Jaffe
  * @version 1.0
  */
-public class Player extend PitneyNguyenNguyen
+public class Player
 {
   private final int color;
   

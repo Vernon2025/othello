@@ -22,6 +22,10 @@ public class PitneyNguyenNguyen extends Player {
      */
     @Override
     public Position getNextMove(Board board) {
+        return getBestMove(board);
+    }
+
+    private Position getBestMove(Board board) {
         ArrayList<Position> legalMoves = getLegalMoves(board);
 
         if (legalMoves.isEmpty()) {
@@ -102,17 +106,15 @@ public class PitneyNguyenNguyen extends Player {
         int color = this.getColor();
         int flippedDiscs = 0;
 
-        // Iterate through directions
         for (String direction : Directions.getDirections()) {
             Position directionVector = Directions.getVector(direction);
             Position newPosition = move.translate(directionVector);
 
-            // Check if the new position is on the board
             if (!newPosition.isOffBoard()) {
-                // Check if there is a line of opponent discs to flip
                 if (step(board, newPosition, directionVector, 0)) {
                     flippedDiscs++;
                 }
+                
             }
         }
 
